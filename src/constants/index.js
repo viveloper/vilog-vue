@@ -1,0 +1,1 @@
+export const SERVER_API_URL = 'http://localhost:5000/viveloper-blog/us-central1/api';
