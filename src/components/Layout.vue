@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <span>MY BLOG</span>
+      <span><router-link to="/">MY BLOG</router-link></span>
       <span><button v-on:click="logout">Logout</button></span>
     </header>
     <nav>
@@ -37,9 +37,7 @@
     },
     methods: {
       logout() {
-        localStorage.removeItem('token');
-        this.$router.push('/signin');
-        console.log('logout');
+        this.$emit('logout');        
       }
     }
   }

@@ -34,7 +34,7 @@
           password: this.password
         }
         axios.post(`${SERVER_API_URL}/login`, signinData).then(res => {
-          this.$emit('signinSucess', res.data.token);
+          this.$emit('loginSuccess', res.data.token);
         }).catch(err => {
           console.log(err.response.data)
         })
