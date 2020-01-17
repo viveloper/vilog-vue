@@ -2,6 +2,7 @@
   <div>    
     <h2>Section Page</h2>
     <h3>{{$route.params.section}}</h3>
+    <router-link to="">Write</router-link>
     <div>
       <table>
         <tr>
