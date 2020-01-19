@@ -41,7 +41,7 @@
           class="p-2 text-muted text-capitalize"
           v-for="section in sections"
           v-bind:key="section.index"
-          v-bind:to="`/sections/${section.name}`"
+          v-bind:to="`/section/${section.name}`"
           >{{ section.name }}</router-link
         >
       </nav>

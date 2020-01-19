@@ -51,18 +51,15 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button
-                      type="button"
+                    <router-link
                       class="btn btn-sm btn-outline-secondary"
+                      v-bind:to="`/section/${post.section}/post/${post.postId}`"
                     >
                       View
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-outline-secondary"
-                    >
+                    </router-link>
+                    <router-link class="btn btn-sm btn-outline-secondary" to="">
                       Edit
-                    </button>
+                    </router-link>
                   </div>
                   <small class="text-muted">9 mins</small>
                 </div>

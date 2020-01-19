@@ -66,7 +66,9 @@ export default {
       axios
         .post(`${SERVER_API_URL}/login`, signinData)
         .then(res => {
-          this.$emit('loginSuccess', res.data.token);
+          const token = res.data.token;
+          const rPath = this.$route.query.rPath;
+          this.$emit('loginSuccess', { token, rPath });
         })
         .catch(err => {
           console.log(err.response.data);
