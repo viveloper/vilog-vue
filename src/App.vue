@@ -1,22 +1,23 @@
 <template>
   <div id="app">
-    <Layout v-if="withLayout" v-on:logout="onLogout" />
+    <LayoutHeader v-if="withLayout" v-on:logout="onLogout" />
     <router-view v-on:loginSuccess="onLogin"></router-view>
+    <LayoutFooter v-if="withLayout" />
   </div>
 </template>
 
 <script>
-import Layout from './components/Layout.vue';
+import LayoutHeader from './components/LayoutHeader.vue';
+import LayoutFooter from './components/LayoutFooter.vue';
 
 export default {
   name: 'app',
   components: {
-    Layout
+    LayoutHeader,
+    LayoutFooter
   },
   data() {
-    return {
-      
-    }
+    return {};
   },
   computed: {
     withLayout() {
@@ -28,16 +29,14 @@ export default {
       localStorage.setItem('token', token);
       console.log('login success!');
       this.$router.push('/');
-    },    
+    },
     onLogout() {
       localStorage.removeItem('token');
       this.$router.push('/signin');
       console.log('logout');
     }
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

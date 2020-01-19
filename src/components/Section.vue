@@ -1,49 +1,78 @@
 <template>
-  <div>
-    <div class="jumbotron jumbotron-fluid">
+  <main class="section" role="main">
+    <section class="jumbotron text-center">
       <div class="container">
-        <h1 class="display-4 text-capitalize">{{ $route.params.section }}</h1>
-        <p class="lead">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, dicta
-          aut. Sit aliquid tenetur id vero neque at, similique nesciunt
-          voluptatem voluptates architecto temporibus cum. Laborum laudantium et
-          incidunt id.
+        <h1 class="text-capitalize">{{ $route.params.section }}</h1>
+        <p class="lead text-muted">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+          minima maxime laboriosam deserunt doloribus consequatur, tempore
+          magnam hic accusantium molestiae praesentium laborum illum quidem
+          consequuntur accusamus explicabo exercitationem, enim corporis?
         </p>
-        <button
-          type="button"
-          class="btn btn-primary btn-lg btn-block"
-          v-on:click="moveToWrite"
-        >
-          Write
-        </button>
+        <p>
+          <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+          <router-link class="write-btn btn btn-primary my-2 btn-lg" to="">
+            Write
+          </router-link>
+        </p>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" v-for="post in posts" v-bind:key="post.postId">
+            <div class="card mb-4 shadow-sm">
+              <svg
+                class="bd-placeholder-img card-img-top"
+                width="100%"
+                height="225"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                role="img"
+                aria-label="Placeholder: Thumbnail"
+              >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c" />
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                <!-- <image
+                  xlink:href="https://images.unsplash.com/photo-1579287079434-abf215c4edc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                  x="0"
+                  y="0"
+                  height="100%"
+                  width="100%"
+                /> -->
+              </svg>
+              <div class="card-body">
+                <p class="card-text">
+                  {{ post.title }}
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      View
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="container">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">title</th>
-            <th scope="col">author</th>
-            <th scope="col">createdAt</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(post, index) in posts" v-bind:key="post.postId">
-            <th scope="row">{{ index }}</th>
-            <td>
-              <router-link
-                v-bind:to="`/sections/${post.section}/posts/${post.postId}`"
-                >{{ post.title }}</router-link
-              >
-            </td>
-            <td>{{ post.author }}</td>
-            <td>{{ post.createdAt }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -89,12 +118,40 @@ export default {
       posts: []
     };
   },
-  methods: {
-    moveToWrite() {
-      this.$router.push('');
-    }
-  }
+  methods: {}
 };
 </script>
 
-<style></style>
+<style>
+.section .jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+.section .album .bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.section .jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.section .jumbotron h1 {
+  font-weight: 300;
+}
+
+.section .jumbotron .container {
+  max-width: 40rem;
+}
+
+.section .write-btn {
+  width: 45%;
+}
+</style>
