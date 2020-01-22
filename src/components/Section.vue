@@ -12,7 +12,10 @@
         <p>
           <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
-          <router-link class="write-btn btn btn-primary my-2 btn-lg" to="">
+          <router-link
+            class="write-btn btn btn-primary my-2 btn-lg"
+            v-bind:to="`${this.$route.path}/write`"
+          >
             Write
           </router-link>
         </p>
@@ -37,13 +40,13 @@
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#55595c" />
                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                <!-- <image
-                  xlink:href="https://images.unsplash.com/photo-1579287079434-abf215c4edc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                <image
+                  v-bind:xlink:href="post.image"
                   x="0"
                   y="0"
                   height="100%"
                   width="100%"
-                /> -->
+                />
               </svg>
               <div class="card-body">
                 <p class="card-text">

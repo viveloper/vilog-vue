@@ -5,6 +5,7 @@ import SignIn from '../components/SignIn.vue';
 import Section from '../components/Section.vue';
 import NotFound from '../components/NotFound.vue';
 import Post from '../components/Post.vue';
+import MarkdownEditor from '../components/MarkdownEditor.vue';
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,7 @@ const router = new VueRouter({
       component: Post,
       beforeEnter: requireAuth
     },
+    { path: '/section/:section/write', component: MarkdownEditor },
     { path: '/signin', component: SignIn },
     { path: '*', component: NotFound }
   ]

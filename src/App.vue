@@ -21,7 +21,13 @@ export default {
   },
   computed: {
     withLayout() {
-      return this.$route.path !== '/signin' && this.$route.path !== '/signup';
+      switch (this.$route.path) {
+        case '/signin':
+        case '/signup':
+          return false;
+        default:
+          return true;
+      }
     }
   },
   methods: {

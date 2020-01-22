@@ -5,7 +5,7 @@
         <img
           class="mb-4"
           src="/docs/4.4/assets/brand/bootstrap-solid.svg"
-          alt=""
+          alt
           width="72"
           height="72"
         />
@@ -67,7 +67,7 @@ export default {
         .post(`${SERVER_API_URL}/login`, signinData)
         .then(res => {
           const token = res.data.token;
-          const rPath = this.$route.query.rPath;
+          const rPath = this.$route.query.rPath ? this.$route.query.rPath : '/';
           this.$emit('loginSuccess', { token, rPath });
         })
         .catch(err => {
